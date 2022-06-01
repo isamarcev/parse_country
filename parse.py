@@ -33,7 +33,7 @@ def get_content(html):
 def parse():
     html = get_html(url)
     if html.status_code == 200:
-        return get_content(html.text)
+        get_content(html.text)
     else:
         print("error")
 
@@ -42,12 +42,15 @@ parse()
 
 
 def find_country(items):
-    x = input('Введите короткое название страны: ')
-    for item in items:
-        if x.title() == item['country']:
-            print(item)
-    print("Можете ввести еще одну страну")
-    return find_country(items)
-
+    x = input('Введите короткое название страны для показа инфо, "стоп" или 1 для выхода: ')
+    if x.lower() == 'стоп' or x.lower() == '1':
+        print("Спасибо, что воспользовались услугами наших авиалиний", "До встречи", end='\n')
+        pass
+    else:
+        for item in items:
+            if x.title() == item['country']:
+                print(item)
+                print("Попробуем еще раз?")
+                find_country(items)
 
 find_country(items)
