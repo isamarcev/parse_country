@@ -17,7 +17,7 @@ def get_content(html):
         items.append({
             'country': item.find('a', class_='image').get('title'),
             'full_country_name': item.find_parent().find_next_sibling().find_next_sibling().get_text().rstrip(),
-            'flag_url': item.find('img', class_='thumbborder').get('src'),
+            'flag_url': 'https:' + item.find('img', class_='thumbborder').get('src'),
             'same_letter_count': int,
         })
     letter_count = []
