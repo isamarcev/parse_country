@@ -44,7 +44,7 @@ parse()
 def find_country(items):
     x = input('Введите короткое название страны для показа инфо, "стоп" или 1 для выхода: ')
     if x.lower() == 'стоп' or x.lower() == '1':
-        print("Спасибо, что воспользовались услугами наших авиалиний", "До встречи", end='\n')
+        print("Спасибо, что воспользовались услугами наших авиалиний!", "До встречи!", end="\t")
         pass
     else:
         for item in items:
@@ -52,5 +52,8 @@ def find_country(items):
                 print(item)
                 print("Попробуем еще раз?")
                 find_country(items)
+        else:
+            print('Введена несуществующая страна или допущена ошибка в названии. Попробуйте еще раз!')
+            find_country(items)
 
 find_country(items)
